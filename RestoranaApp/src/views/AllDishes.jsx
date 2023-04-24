@@ -1,4 +1,6 @@
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
@@ -37,25 +39,29 @@ function AllDishes() {
   }
 
     return(
-        <>
+        <div className='body'>
+        <Container>
         <Button onClick={handleClick}>Go Back</Button>
         <div className="body">
-             <div className='grid-wrapper'>
-      {menu.map((dish) => (
-        <div key={dish.id} className='.grid-item'>
-          <div className='grid-item-wrapper-inner'>
-            <div key={dish.id}>
-              <h2 >{dish.dish_name}</h2>
-              <h3 >Description:  {dish.dish_descr}</h3>
-              <h3 >Price:{dish.price}€</h3>
-              <button onClick={() => handleDelete(dish.id)}>Dzēst</button>  
-            </div>
+            <div className='grid-wrapper'>
+             {menu.map((dish) => (
+                <div key={dish.id} className='.grid-item'>
+                  <Card style={{ width: '18rem' }}>
+                  <Card.Img variant="top" src="holder.js/100px180" />
+                  <Card.Body>
+                  <Card.Title>{dish.dish_name}</Card.Title>
+                  <Card.Text>
+                  Description:  {dish.dish_descr}
+                  </Card.Text>
+                  <Button variant="warning" onClick={() => handleDelete(dish.id)}>Dzēst</Button>
+                  </Card.Body>
+                  </Card>
+                </div>
+              ))}
           </div>
         </div>
-      ))}
-    </div>
+        </Container>
         </div>
-        </>
     )
 
 }

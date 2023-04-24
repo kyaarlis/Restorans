@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import './App.css'
+// import './App.css'
+import '../styles/FormMenu.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
@@ -40,17 +41,17 @@ function MenuForm() {
     <>
       <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Label>Dish Name</Form.Label>
+        <Form.Label className='p'>Dish Name</Form.Label>
         <Form.Control type="text" placeholder="Enter dish name" name="dish_name"  onChange={handleChange} required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicDescription">
-        <Form.Label>Dish Description</Form.Label>
+        <Form.Label className='p'>Dish Description</Form.Label>
         <Form.Control type="text" placeholder="Enter dish description" name="dish_descr" onChange={handleChange} required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPrice">
-        <Form.Label>Price</Form.Label>
+        <Form.Label className='p'>Price</Form.Label>
         <Form.Control type="number" placeholder="$$$" name="price" min={0} onChange={handleChange} required/>
       </Form.Group>
       <Button variant="primary" type="submit">
