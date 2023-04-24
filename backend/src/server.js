@@ -35,8 +35,8 @@ database.serialize(() => {
 app.get('/menu', (req, res) => {
     // database.get atgriež tikai vienu pirmo atrasto rezutlātu
       // database.all atgriež visus atrastos rezultātus
-  database.all('SELECT * FROM dishes', (error, project) => {
-    res.json(project)
+  database.all('SELECT * FROM menu', (error, menu) => {
+    res.json(menu)
   })
 })
 
@@ -50,6 +50,7 @@ app.post('/menu', (req, res) => {
     res.json('New dish added successfully!')
   })
 })
+
 
 // palaižam serveri ar 3004 portu
 app.listen(3004, () => {
