@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-// import '../MenuStyles/AllDishes.css'
 
 function AllDishes() {
     document.title = "Edienkarte"  
@@ -47,7 +46,7 @@ function AllDishes() {
              {menu.map((dish) => (
                 <div key={dish.id} className='.grid-item'>
                   <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" alt='dish_image' src= {dish.dish_img} />
+                  <Card.Img variant="top" alt='dish_image' src={dish.dish_img} />  
                   <Card.Body>
                   <Card.Title>{dish.dish_name}</Card.Title>
                   <Card.Text>
