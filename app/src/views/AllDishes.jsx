@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import '../styles/AllDishesCSS.css'
+// import '../MenuStyles/AllDishes.css'
 
 function AllDishes() {
     document.title = "Edienkarte"  
@@ -39,19 +39,22 @@ function AllDishes() {
   }
 
     return(
-        <div className='body'>
+        <div className="bg-list-bg-img bg-cover bg-scroll bg-no-repeat h-screen w-screen">
         <Container>
-        <Button onClick={handleClick}>Go Back</Button>
+        <Button className='mt-3' variant='danger' onClick={handleClick}>Go Back</Button>
         <div className="body">
-            <div className='grid-wrapper'>
+            <div className="grid grid-cols-3 gap-4 p-4">
              {menu.map((dish) => (
                 <div key={dish.id} className='.grid-item'>
                   <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src="holder.js/100px180" />
+                  <Card.Img variant="top" alt='dish_image' src= {dish.dish_img} />
                   <Card.Body>
                   <Card.Title>{dish.dish_name}</Card.Title>
                   <Card.Text>
                   Description:  {dish.dish_descr}
+                  </Card.Text>
+                  <Card.Text>
+                  Price:  {dish.price}€
                   </Card.Text>
                   <Button variant="warning" onClick={() => handleDelete(dish.id)}>Dzēst</Button>
                   </Card.Body>
@@ -63,7 +66,6 @@ function AllDishes() {
         </Container>
         </div>
     )
-
 }
 
 export default AllDishes
