@@ -52,6 +52,12 @@ app.post('/menu', (req, res) => {
 })
 
 
+app.delete('/menu/:id', (req, res) => {
+  database.run(`DELETE FROM menu WHERE id = ${req.params.id}`, () => {   
+    res.json('Dish deleted!')
+  })
+})
+
 // palaižam serveri ar 3004 portu
 app.listen(3004, () => {
   console.log(`Example app listening on port 3004`)
