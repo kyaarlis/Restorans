@@ -9,4 +9,4 @@ First download the repository;
 then '**cd app**' in one terminal and '**cd backend**' in the other;
 run '**npm i**' in both terminals.
 To launch app run '**npm run dev**',
-to launch backend run 'npm run start:nodemon'
+to launch backend run '**npm run start:nodemon**'
