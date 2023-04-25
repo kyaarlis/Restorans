@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container';
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { Buffer } from 'buffer';
+
 
 function AllDishes() {
     document.title = "Edienkarte"  
@@ -38,7 +40,7 @@ function AllDishes() {
   }
 
     return(
-        <div className="bg-list-bg-img bg-cover bg-scroll bg-no-repeat h-screen w-screen">
+        <div className="bg-list-bg-img bg-cover fixed bg-scroll h-screen w-screen">
         <Container>
         <Button className='mt-3' variant='danger' onClick={handleClick}>Go Back</Button>
         <div className="body">
@@ -46,7 +48,7 @@ function AllDishes() {
              {menu.map((dish) => (
                 <div key={dish.id} className='.grid-item'>
                   <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" alt='dish_image' src={dish.dish_img} />  
+                  <Card.Img variant="top" alt='dish_image' src={`data:image/jpeg;base64,${Buffer.from(dish.dish_img.data).toString('base64')}`} />  
                   <Card.Body>
                   <Card.Title>{dish.dish_name}</Card.Title>
                   <Card.Text>

@@ -21,38 +21,41 @@ function MenuForm() {
 
     const handleFileUpload = (event) => {
       setForm({ ...form, dish_img: event.target.files[0] });
+      console.log(form);
     }
     
 
     // Nosūtam datus uz datubāzi 
-    const handleSubmit = (event) => {
-      event.preventDefault()
-  
-      axios.post("http://localhost:3004/menu", form)
-              .then(function (res) {
-                console.log(res.data);
-                handleClick()
-              });      
-            }
-
     // const handleSubmit = (event) => {
     //   event.preventDefault()
+  
+    //   axios.post("http://localhost:3004/menu", form)
+    //           .then(function (res) {
+    //             console.log(res.data);
+    //             handleClick()
+    //           });      
+    //         }
+
+    const handleSubmit = (event) => {
+      event.preventDefault()
     
-    //   const formData = new FormData()
-    //   formData.append("dish_name", form.dish_name)
-    //   formData.append("dish_descr", form.dish_descr)
-    //   formData.append("price", form.price)
-    //   formData.append("dish_img", form.dish_img)
+      const formData = new FormData()
+      formData.append("dish_name", form.dish_name)
+      formData.append("dish_descr", form.dish_descr)
+      formData.append("price", form.price)
+      formData.append("dish_img", form.dish_img)
+
+      console.log(formData)
     
-    //   axios.post("http://localhost:3004/menu", formData, {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   }).then(function (res) {
-    //     console.log(res.data)
-    //     handleClick()
-    //   })
-    // }
+      axios.post("http://localhost:3004/menu", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }).then(function (res) {
+        console.log(res.data)
+        handleClick()
+      })
+    }
     
     
   // page routing
