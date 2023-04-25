@@ -1,5 +1,5 @@
 # Restorans
-In this project me and my classmate Andrejs make a restaurant menu app
+In this project me and my classmate Impossible(Andrejs) make a restaurant menu app
 
 To run project:
 First download the repository;
