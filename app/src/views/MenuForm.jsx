@@ -32,8 +32,6 @@ function MenuForm() {
       formData.append("dish_descr", form.dish_descr)
       formData.append("price", form.price)
       formData.append("dish_img", form.dish_img)
-
-      console.log(formData)
     
       axios.post("http://localhost:3004/menu", formData, {
         headers: {
@@ -56,10 +54,13 @@ function MenuForm() {
   return (
     <div className="flex justify-center items-center flex-col bg-form-bg-img bg-cover bg-no-repeat h-screen w-screen text-white">
 
-     
-      <h1 className='text-black'>Add Dish</h1>
+
+      <h1 className='color-[#fdd6d6]  tw:text-stroke tw:text-stroke-white' >Add Dish</h1>
+      {/* color-[#fdd6d6]*/}
+
       <Container className='flex justify-center items-center'>
       <Form className='mt-3' onSubmit={handleSubmit}>
+        
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label className='p'>Dish Name</Form.Label>
         <Form.Control type="text" maxLength={100} placeholder="Enter dish name" name="dish_name"  onChange={handleChange} required/>
@@ -72,13 +73,14 @@ function MenuForm() {
 
       <Form.Group controlId="formFile" className="mb-3">
         <Form.Label>Add Dish Image</Form.Label>
-        <Form.Control type="file" name="dish_img" onChange={handleFileUpload} />
+        <Form.Control type="file" name="dish_img" onChange={handleFileUpload} required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPrice">
         <Form.Label>Price</Form.Label>
         <Form.Control type="number" placeholder="€" name="price" min={0} onChange={handleChange} required/>
       </Form.Group>
+      
       <div className='flex justify-between'>
       <Button variant="primary" type="submit">
         Submit

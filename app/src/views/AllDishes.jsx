@@ -12,8 +12,6 @@ function AllDishes() {
 
     const [menu, setMenu] = useState([])
 
-    console.log(menu)
-
     const handleGet=()=>{
         axios.get(`http://localhost:3004/menu`).then((response) => {
             
