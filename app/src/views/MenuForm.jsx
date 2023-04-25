@@ -23,18 +23,6 @@ function MenuForm() {
       setForm({ ...form, dish_img: event.target.files[0] });
       console.log(form);
     }
-    
-
-    // Nosūtam datus uz datubāzi 
-    // const handleSubmit = (event) => {
-    //   event.preventDefault()
-  
-    //   axios.post("http://localhost:3004/menu", form)
-    //           .then(function (res) {
-    //             console.log(res.data);
-    //             handleClick()
-    //           });      
-    //         }
 
     const handleSubmit = (event) => {
       event.preventDefault()
@@ -67,17 +55,19 @@ function MenuForm() {
 
   return (
     <div className="flex justify-center items-center flex-col bg-form-bg-img bg-cover bg-no-repeat h-screen w-screen text-white">
+
+     
       <h1 className='text-black'>Add Dish</h1>
       <Container className='flex justify-center items-center'>
       <Form className='mt-3' onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label className='p'>Dish Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter dish name" name="dish_name"  onChange={handleChange} required/>
+        <Form.Control type="text" maxLength={100} placeholder="Enter dish name" name="dish_name"  onChange={handleChange} required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicDescription">
         <Form.Label>Dish Description</Form.Label>
-        <Form.Control as="textarea" rows={3} placeholder="Enter dish description" name="dish_descr" onChange={handleChange} required/>
+        <Form.Control as="textarea" rows={3} maxLength={200} placeholder="Enter dish description" name="dish_descr" onChange={handleChange} required/>
       </Form.Group>
 
       <Form.Group controlId="formFile" className="mb-3">
@@ -89,9 +79,14 @@ function MenuForm() {
         <Form.Label>Price</Form.Label>
         <Form.Control type="number" placeholder="€" name="price" min={0} onChange={handleChange} required/>
       </Form.Group>
+      <div className='flex justify-between'>
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <Button variant="warning" onClick={handleClick}>
+        Go To Menu
+        </Button>
+        </div>
     </Form>
     </Container>
     </div>
