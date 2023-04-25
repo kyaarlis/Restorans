@@ -10,7 +10,6 @@ function MenuForm() {
 
   const [form, setForm] = useState({})
 
-  console.log(form)
   
     // Atjaunina veidlapas datus, kad lietotājs sniedz datus
     const handleChange = (event) => {   
