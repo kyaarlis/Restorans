@@ -40,7 +40,7 @@ function AllDishes() {
   }
 
     return(
-        <div className="bg-list-bg-img bg-cover fixed bg-scroll h-screen w-screen">
+        <div className="bg-list-bg-img bg-cover bg-scroll min-h-screen">
         <Container>
         <Button className='mt-3' variant='danger' onClick={handleClick}>Go Back</Button>
         <div className="body">
