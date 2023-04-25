@@ -1,7 +1,7 @@
 # Restorans
 In this project me and my classmate Impossible(Andrejs Egils Celms) make a restaurant menu app where you can add info about a dish and create a restaurant menu
 
-### I vkarlis(Karlis Veckagans) was a backend developer and Impossible(Andrejs Egils Celms) did the frontmed part
+### I vkarlis(Karlis Veckagans) was a backend developer and Impossible(Andrejs Egils Celms) did the frontend part
 
 
 # To run project:
