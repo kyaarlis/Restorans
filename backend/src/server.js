@@ -44,19 +44,19 @@
   
 
   // Atgriež visus ēdienus no DB
-  app.get('/menu', (req, res) => {
-    database.all('SELECT * FROM menu', (error, menu) => {
+  app.get('/menu', (req: any, res: any) => {
+    database.all('SELECT * FROM menu', (error: any, menu: any) => {
       res.json(menu)
     })
   })
 
   // POST http://localhost:3004/menu
   // pievieno jaunu ēdienu
-  app.post('/menu', upload.single('dish_img'), (req, res) => {
+  app.post('/menu', upload.single('dish_img'), (req: any, res: any) => {
     database.run(`
       INSERT INTO menu (dish_name, dish_descr, price, dish_img)
       VALUES (?, ?, ?, ?);
-    `, [req.body.dish_name, req.body.dish_descr, req.body.price, req.file.buffer], (error) => {
+    `, [req.body.dish_name, req.body.dish_descr, req.body.price, req.file.buffer], (error: any) => {
       if (error) {
         console.error(error.message);
         res.status(500).send('Error adding dish to menu');
@@ -66,7 +66,7 @@
     })
   })
 
-  app.delete('/menu/:id', (req, res) => {
+  app.delete('/menu/:id', (req: any, res: any) => {
     database.run(`DELETE FROM menu WHERE id = ${req.params.id}`, () => {   
       res.json('Dish deleted!')
     })
